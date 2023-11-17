@@ -49,4 +49,14 @@ class PostController extends Controller
             'post' => $post
         ]);
     }
+
+    public function destroy(Post $post){
+        if($post->user_id === auth()->user()->id){
+            $this->authorize('delete', $post);
+
+            $post->delete();
+
+            return redirect()->route('posts.index', auth()->user()->username);
+        }
+    }
 }
