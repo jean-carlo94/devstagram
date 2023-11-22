@@ -9,13 +9,16 @@
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
 
+        @livewireStyles
     </head>
     <body class="antialiased bg-gray-100">
         <header class="p-5 bg-white border-b shadow">
             <div class="container flex items-center justify-between mx-auto">
-                <h1 class="text-3xl font-black">
-                    DevStagram
-                </h1>
+                <a href="{{ route('home') }}">
+                    <h1 class="text-3xl font-black">
+                        DevStagram
+                    </h1>
+                </a>
                 <nav class="flex items-center gap-4">
                     @auth
                         <a class="flex items-center gap-2 p-2 text-sm font-bold text-gray-600 uppercase bg-white border cursor-pointer" href="{{ route('posts.create') }}">
@@ -53,5 +56,7 @@
         <footer class="p-5 mt-10 font-bold text-center text-gray-500 uppercase">
             DevStagram - Todos los derechos reservados {{ now()->year }}
         </footer>
+
+        @livewireScripts
     </body>
 </html>
